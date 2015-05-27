@@ -1,9 +1,12 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from .models import Game
+from django.contrib.auth.decorators import login_required
 
 def funhello(request):
     return HttpResponse("hey");
 
+@login_required(login_url='/accounts/login/')
 def names(request):
     games = Game.objects.all()
     response = ""

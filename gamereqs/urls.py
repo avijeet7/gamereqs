@@ -16,7 +16,16 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^reqs/', include('reqs.urls')),
+    url(r'^accounts/login/$', 'gamereqs.views.login'),
+    url(r'^accounts/auth/$', 'gamereqs.views.auth_view'),
+    url(r'^accounts/logout/$', 'gamereqs.views.logout'),
+    url(r'^accounts/loggedin/$', 'gamereqs.views.loggedin'),
+    url(r'^accounts/invalid/$', 'gamereqs.views.invalid_login'),
+
+    #url(r'^login/$', 'django.contrib.auth.views.login'),
+    #url(r'^logout/$', 'django.contrib.auth.views.logout'),
 ]
